@@ -94,24 +94,27 @@ while True:
 	led = "%i-%i-%i" % (red_value, green_value, blue_value)
 	mot = "%i" % motor_angle
 	data = json.dumps(
-		[
-			{
-				"name": "TEMPERATURE",
-				"value": temp
-			},
-			{
-				"name": "HUMIDITY",
-				"value": hum
-			},
-            {
-				"name": "LED",
-				"value": led
-			},
-            {
-				"name": "MOTION",
-				"value": mot
-			}
-		]
+        {
+        "sensors_data": 
+            [
+                {
+                    "name": "TEMPERATURE",
+                    "value": temp
+                },
+                {
+                    "name": "HUMIDITY",
+                    "value": hum
+                },
+                {
+                    "name": "LED",
+                    "value": led
+                },
+                {
+                    "name": "MOTION",
+                    "value": mot
+                }
+            ]
+        }
 	)
 	client.publish(topic, data)
 	time.sleep(1)
